@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>👑 Benja Dictador 👑</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:linear-gradient(135deg,#0d0d0d,#1b1b1b,#000);
+min-height:100vh;display:flex;justify-content:center;align-items:center;overflow:hidden}
+body:before{
+content:"";position:fixed;inset:0;
+background:
+radial-gradient(circle at 20% 20%,rgba(255,255,255,.08),transparent 20%),
+radial-gradient(circle at 80% 30%,rgba(255,255,255,.06),transparent 18%),
+radial-gradient(circle at 50% 80%,rgba(255,255,255,.05),transparent 25%);
+animation:bg 10s alternate infinite}
+@keyframes bg{from{transform:scale(1)}to{transform:scale(1.2)}}
+.contenedor{
+position:relative;z-index:1;width:92%;max-width:850px;
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(12px);
+border:1px solid rgba(255,255,255,.15);
+border-radius:25px;padding:35px;text-align:center;
+box-shadow:0 0 40px rgba(0,0,0,.7)}
+h1{color:#fff;font-size:42px;text-shadow:0 0 10px #fff,0 0 20px #fff}
+p{color:#cfcfcf;margin:12px 0 25px;font-size:18px}
+.principal{width:100%;max-width:650px;border-radius:18px;box-shadow:0 0 25px rgba(255,255,255,.15)}
+footer{margin-top:25px;color:#999}
+
+/* Tarjeta flotante estilo mensajería (original) */
+.tarjeta{
+position:fixed;
+top:20px;
+right:-420px;
+width:340px;
+background:#fff;
+border-radius:26px;
+overflow:hidden;
+box-shadow:0 20px 45px rgba(0,0,0,.45);
+transition:right .45s ease;
+z-index:9999;
+text-decoration:none;
+color:#222;
+}
+.tarjeta.visible{right:20px}
+.hero{
+padding:18px;
+display:flex;
+justify-content:center;
+background:#fafafa;
+}
+.hero img{
+width:170px;height:170px;border-radius:50%;
+object-fit:cover;border:6px solid #f0f0f0}
+.texto{padding:18px;text-align:center}
+.badge{
+display:inline-block;
+background:#e8f8eb;
+color:#1d9d45;
+padding:8px 14px;
+border-radius:999px;
+font-weight:bold;
+margin-bottom:14px}
+.texto h2{font-size:20px;line-height:1.3;margin-bottom:14px}
+.boton{
+background:#18a83b;
+color:#fff;
+padding:14px;
+border-radius:12px;
+font-weight:bold;
+font-size:22px}
+</style>
+</head>
+<body>
+
+<div class="contenedor">
+<h1>👑 Benja Dictador 👑</h1>
+<p>Galería Oficial</p>
+<img class="principal" src="benjadictador.png.JPG" alt="">
+<footer>Creado con GitHub Pages</footer>
+</div>
+
+<a class="tarjeta" id="tarjeta" href="anuncio.html">
+<div class="hero">
+<img src="anuncio.jpg" alt="Anuncio">
+</div>
+<div class="texto">
+<div class="badge">¿Quieres hablar con gorditas curiosas?</div>
+<h2>¡Consigue perfiles cerca de ti!</h2>
+<div class="boton">Ver perfiles</div>
+</div>
+</a>
+
+<script>
+const t=document.getElementById("tarjeta");
+function mostrar(){
+ t.classList.add("visible");
+ setTimeout(()=>t.classList.remove("visible"),5000);
+}
+setTimeout(mostrar,2000);
+setInterval(mostrar,10000);
+</script>
+
+</body>
+</html>
