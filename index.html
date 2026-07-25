@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>👑 Benja Dictador 👑</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:linear-gradient(135deg,#0d0d0d,#1b1b1b,#000);
+min-height:100vh;display:flex;justify-content:center;align-items:center;overflow:hidden}
+body:before{
+content:"";position:fixed;inset:0;
+background:
+radial-gradient(circle at 20% 20%,rgba(255,255,255,.08),transparent 20%),
+radial-gradient(circle at 80% 30%,rgba(255,255,255,.06),transparent 18%),
+radial-gradient(circle at 50% 80%,rgba(255,255,255,.05),transparent 25%);
+animation:fondo 10s linear infinite alternate}
+@keyframes fondo{from{transform:scale(1)}to{transform:scale(1.2)}}
+.contenedor{
+position:relative;z-index:1;width:92%;max-width:850px;
+background:rgba(255,255,255,.05);backdrop-filter:blur(12px);
+border:1px solid rgba(255,255,255,.15);
+border-radius:25px;padding:35px;text-align:center;
+box-shadow:0 0 40px rgba(0,0,0,.7)}
+h1{color:#fff;font-size:42px;text-shadow:0 0 10px #fff,0 0 20px #fff}
+p{color:#cfcfcf;margin:12px 0 25px;font-size:18px}
+img.principal{width:100%;max-width:650px;border-radius:18px;transition:.4s;box-shadow:0 0 25px rgba(255,255,255,.15)}
+img.principal:hover{transform:scale(1.04)}
+footer{margin-top:25px;color:#999}
+
+.notificacion{
+position:fixed;
+top:20px;
+right:-400px;
+width:340px;
+display:flex;
+align-items:center;
+gap:15px;
+padding:15px;
+background:rgba(25,25,25,.96);
+backdrop-filter:blur(10px);
+border-radius:18px;
+border:1px solid rgba(255,255,255,.15);
+color:#fff;
+transition:.5s;
+box-shadow:0 0 25px rgba(0,0,0,.5);
+z-index:9999;
+}
+.notificacion.activa{right:20px}
+.fotoNotificacion{
+width:60px;height:60px;border-radius:50%;
+object-fit:cover;border:2px solid #fff}
+.infoNotificacion h3{margin-bottom:5px;font-size:16px}
+.infoNotificacion p{margin:0;color:#ddd;font-size:14px}
+</style>
+</head>
+<body>
+
+<div class="contenedor">
+<h1>👑 Benja Dictador 👑</h1>
+<p>Galería Oficial</p>
+<img class="principal" src="benjadictador.png.JPG" alt="Benja Dictador">
+<footer>Creado con GitHub Pages</footer>
+</div>
+
+<div class="notificacion" id="notificacion">
+<img src="luciano1.jpeg" class="fotoNotificacion" alt="Foto">
+<div class="infoNotificacion">
+<h3>🔥 Anuncio</h3>
+<p id="mensajeNotificacion"></p>
+</div>
+</div>
+
+<script>
+const anuncios=[
+{foto:"luciano1.jpeg",texto:"🍔 Gorditas hambrientas a 0 km de ti"},
+{foto:"benja2.jpg",texto:"🍔 Gorditas hambrientas a 0 km de ti"},
+{foto:"cristobal1.jpg",texto:"🍔 Gorditas hambrientas a 0 km de ti"}
+];
+
+let indice=0;
+
+function mostrarNotificacion(){
+const noti=document.getElementById("notificacion");
+const foto=document.querySelector(".fotoNotificacion");
+const texto=document.getElementById("mensajeNotificacion");
+
+foto.src=anuncios[indice].foto;
+texto.textContent=anuncios[indice].texto;
+
+noti.classList.add("activa");
+
+setTimeout(()=>{noti.classList.remove("activa");},2500);
+
+indice=(indice+1)%anuncios.length;
+}
+
+setTimeout(mostrarNotificacion,1000);
+setInterval(mostrarNotificacion,3000);
+</script>
+
+</body>
+</html>
